@@ -92,10 +92,21 @@ h2 {
 	display: flex;
 	justify-content: center;
 	margin-top: 90px;
+
+
 }
-.cart__order__form {
+#cart__order__form {
 	width: 50%;
+
+	/*ng
+	visibility: hidden; */
 }
+
+.toto {
+
+	visibility: hidden;
+}
+
 .cart__order__form__question {
 	display: flex;
 	flex-direction: column;
