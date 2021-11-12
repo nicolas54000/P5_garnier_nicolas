@@ -1,13 +1,13 @@
 // gestion du panier
 document.getElementById("order").addEventListener("click", xpostForm);
 
-//Initialisation du local storage
+//recuperation du local storage ajout des articles dans le tableau  produitLocalStorage
 
 let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
 //
-console.table("localStorage" + produitLocalStorage);
+// console.table("localStorage" + produitLocalStorage);
 
-const positionEmptyCart = document.querySelector("#cart__items");
+ const positionEmptyCart = document.querySelector("#cart__items");
 
 // Si le panier est vide
 //function getCart(){
@@ -150,15 +150,16 @@ for (let k = 0; k < qttModif.length; k++) {
     qttModif[k].addEventListener("change", (event) => {
         event.preventDefault();
 
-        //Selection de l'element à modifier en fonction de son id ET sa couleur
+        // qte actuelle
         let quantityModif = produitLocalStorage[k].quantiteProduit;
+         // nouvelle qte
         let qttModifValue = qttModif[k].valueAsNumber;
 
-        const resultFind = produitLocalStorage.find(
-            (elxx) => elxx.qttModifValue !== quantityModif
-        );
-
+        // selectionne l'article de pannier qui a sa quantité modifiée
+        const resultFind = produitLocalStorage.find(x => x.qttModifValue !== quantityModif);
+        // on lu affecte la nouvelle valeur
         resultFind.quantiteProduit = qttModifValue;
+
         produitLocalStorage[k].quantiteProduit = resultFind.quantiteProduit;
 
         localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
