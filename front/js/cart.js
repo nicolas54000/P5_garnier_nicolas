@@ -170,7 +170,7 @@ for (let k = 0; k < qttModif.length; k++) {
 }
 
 // Suppression d'un produit
-//function deleteProduct() {
+//
 let btn_supprimer = document.querySelectorAll(".deleteItem");
 
 for (let j = 0; j < btn_supprimer.length; j++) {
@@ -181,10 +181,11 @@ for (let j = 0; j < btn_supprimer.length; j++) {
         let idDelete = produitLocalStorage[j].idProduit;
         let colorDelete = produitLocalStorage[j].couleurProduit;
 
-        produitLocalStorage = produitLocalStorage.filter(
-            (el) =>
-                el.idProduit !== idDelete || el.couleurProduit !== colorDelete
+        // on enleve du localstorage le camapé supprimé
+        produitLocalStorage = produitLocalStorage.filter(x => x.idProduit !== idDelete || x.couleurProduit !== colorDelete
         );
+
+        // on reecrit le localstorage sans le canapé supprimé
 
         localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
 
@@ -193,6 +194,8 @@ for (let j = 0; j < btn_supprimer.length; j++) {
         location.reload();
     });
 }
+
+// fonction generique de validation
 
 function isValide(regExpNom, nomElement, valeurElement, MessageErreur) {
     let valide = true;
