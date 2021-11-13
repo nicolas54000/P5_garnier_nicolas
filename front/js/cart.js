@@ -7,7 +7,7 @@ let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
 //
 // console.table("localStorage" + produitLocalStorage);
 
- const positionEmptyCart = document.querySelector("#cart__items");
+const positionEmptyCart = document.querySelector("#cart__items");
 
 // Si le panier est vide
 //function getCart(){
@@ -152,11 +152,13 @@ for (let k = 0; k < qttModif.length; k++) {
 
         // qte actuelle
         let quantityModif = produitLocalStorage[k].quantiteProduit;
-         // nouvelle qte
+        // nouvelle qte
         let qttModifValue = qttModif[k].valueAsNumber;
 
         // selectionne l'article de pannier qui a sa quantité modifiée
-        const resultFind = produitLocalStorage.find(x => x.qttModifValue !== quantityModif);
+        const resultFind = produitLocalStorage.find(
+            (x) => x.qttModifValue !== quantityModif
+        );
         // on lu affecte la nouvelle valeur
         resultFind.quantiteProduit = qttModifValue;
 
@@ -182,7 +184,8 @@ for (let j = 0; j < btn_supprimer.length; j++) {
         let colorDelete = produitLocalStorage[j].couleurProduit;
 
         // on enleve du localstorage le camapé supprimé
-        produitLocalStorage = produitLocalStorage.filter(x => x.idProduit !== idDelete || x.couleurProduit !== colorDelete
+        produitLocalStorage = produitLocalStorage.filter(
+            (x) => x.idProduit !== idDelete || x.couleurProduit !== colorDelete
         );
 
         // on reecrit le localstorage sans le canapé supprimé
@@ -272,11 +275,11 @@ function xpostForm() {
 
         //Construction d'un array depuis le local storage
         let idProducts = [];
-        for (let i = 0; i < produitLocalStorage.length; i++) {
+       for (let i = 0; i < produitLocalStorage.length; i++) {
             // ajpout ligne
-            idProducts.push(produitLocalStorage[i].idProduit);
+           idProducts.push(produitLocalStorage[i].idProduit);
         }
-        console.log(idProducts);
+        // console.log(idProducts);
 
         const order = {
             contact: {
@@ -286,7 +289,8 @@ function xpostForm() {
                 city: inputCity.value,
                 email: inputMail.value,
             },
-            products: idProducts,
+        products: idProducts,
+
         };
 
         const options = {
