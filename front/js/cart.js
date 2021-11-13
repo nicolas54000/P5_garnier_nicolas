@@ -125,7 +125,7 @@ for (var i = 0; i < myLength; ++i) {
 
 let productTotalQuantity = document.getElementById("totalQuantity");
 productTotalQuantity.innerHTML = totalQtt;
-console.log(totalQtt);
+//console.log(totalQtt);
 
 // Récupération du prix total
 totalPrice = 0;
@@ -137,7 +137,7 @@ for (var i = 0; i < myLength; ++i) {
 
 let productTotalPrice = document.getElementById("totalPrice");
 productTotalPrice.innerHTML = totalPrice;
-console.log(totalPrice);
+//console.log(totalPrice);
 
 // Modification d'une quantité de produit
 
@@ -275,9 +275,9 @@ function xpostForm() {
 
         //Construction d'un array depuis le local storage
         let idProducts = [];
-       for (let i = 0; i < produitLocalStorage.length; i++) {
+        for (let i = 0; i < produitLocalStorage.length; i++) {
             // ajpout ligne
-           idProducts.push(produitLocalStorage[i].idProduit);
+            idProducts.push(produitLocalStorage[i].idProduit);
         }
         // console.log(idProducts);
 
@@ -289,8 +289,7 @@ function xpostForm() {
                 city: inputCity.value,
                 email: inputMail.value,
             },
-        products: idProducts,
-
+            products: idProducts,
         };
 
         const options = {

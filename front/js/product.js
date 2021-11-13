@@ -2,7 +2,7 @@
 var str = window.location.href;
 var url = new URL(str);
 var idProduct = url.searchParams.get("id");
-console.log(idProduct);
+// console.log(idProduct);
 let article = "";
 
 //La méthode querySelector() de l'interface Document retourne le premier
@@ -31,7 +31,7 @@ fetch("http://localhost:3000/api/products/" + idProduct)
 
   .then(async function (resultatAPI) {
     article = await resultatAPI;
-    console.table(article);
+    // console.table(article);
 
     //  affichage du detai de l'article
 
